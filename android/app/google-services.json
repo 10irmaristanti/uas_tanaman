@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "354979347908",
+    "project_id": "uastanaman",
+    "storage_bucket": "uastanaman.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:354979347908:android:ec2065fd4253ee0fe6f891",
+        "android_client_info": {
+          "package_name": "com.example.uas_tanaman"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "354979347908-0o3rf48qlu316rum0vlun76lp8te4dci.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.uas_tanaman",
+            "certificate_hash": "29fee4e90e2d35751b8d711a315eeab4444c6ce6"
+          }
+        },
+        {
+          "client_id": "354979347908-dgl9a90t8kinrg3g0tt2oh6ph8f5d8tv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATCLkinCjqilPop8x1by4wgxKUtmCTfzM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "354979347908-dgl9a90t8kinrg3g0tt2oh6ph8f5d8tv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

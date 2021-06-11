@@ -1,8 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'login_page.dart';
-import 'homeTanaman.dart';
-import 'formTanaman.dart';
+// import 'homeTanaman.dart';
+// import 'formTanaman.dart';
+import 'package:uas_tanaman/Jenis/homeJenis.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -20,10 +21,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: LoginPage(),
-       routes: {
-  '/signin': (contex) => LoginPage(),
-  '/homeTanaman': (conntex) => HomeSatu(),
-},
+//        routes: {
+//   '/signin': (contex) => LoginPage(),
+//   '/homeTanaman': (contex) => HomeSatu(),
+// },
     );
   }
 }

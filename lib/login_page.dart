@@ -1,7 +1,8 @@
 import 'register_page.dart';
 import 'package:uas_tanaman/sign_in.dart';
 import 'package:flutter/material.dart';
-import 'homeTanaman.dart';
+import 'package:uas_tanaman/Tanaman/homeTanaman.dart';
+// import 'homeTanaman.dart';
 // import 'first_screen.dart';
 // import 'form.dart';
 

@@ -4,13 +4,25 @@ import 'package:flutter/material.dart';
 import 'login_page.dart';
 import 'formTanaman.dart';
 import 'itemTanaman.dart';
-import 'homeJenis.dart';
+import 'Jenis/homeJenis.dart';
 import 'sign_in.dart';
 
 class HomeSatu extends StatelessWidget {
+  final TextEditingController namaTanamanController = TextEditingController();
+  final TextEditingController ukuranController = TextEditingController();
+  final TextEditingController hargaController = TextEditingController();
+  final TextEditingController stokController = TextEditingController();
+  final TextEditingController jenisController = TextEditingController();
 CollectionReference _pengguna =
       FirebaseFirestore.instance.collection('tanaman');
       FirebaseAuth _auth = FirebaseAuth.instance;
+      void clearInputText() {
+    namaTanamanController.text = "";
+    ukuranController.text = "";
+    hargaController.text = "";
+    stokController.text = "";
+    jenisController.text = "";
+      }
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -113,9 +125,13 @@ CollectionReference _pengguna =
                                   e.data()['jenis'],
                                   onUpdate: () {
                                     _pengguna.doc(e.id).update({
-                                      "stok":
-                                          e.data()['stok'] + 1
+                                      "namaTanaman": namaTanamanController.text,
+                                      "ukuran": ukuranController.text,
+                                      "harga": double.tryParse(hargaController.text),
+                                      "stok": double.tryParse(stokController.text),
+                                      "jenis": jenisController.text,
                                     });
+                                    clearInputText();
                                   },
                                   onDelete: () {
                                     _pengguna.doc(e.id).delete();

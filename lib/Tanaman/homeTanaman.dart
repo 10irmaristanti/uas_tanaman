@@ -1,16 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'login_page.dart';
-import 'formJenis.dart';
-import 'itemJenis.dart';
-import 'homeJenis.dart';
-import 'homeTanaman.dart';
-import 'sign_in.dart';
+import 'package:uas_tanaman/login_page.dart';
+import 'package:uas_tanaman/sign_in.dart';
+import 'package:uas_tanaman/Tanaman/item_list.dart';
+import 'package:uas_tanaman/Tanaman/addScreenTanaman.dart';
+import 'package:uas_tanaman/Jenis/homeJenis.dart';
 
-class HomeDua extends StatelessWidget {
-CollectionReference _jenis =
-      FirebaseFirestore.instance.collection('jenis');
+class HomeSatu extends StatelessWidget {
+CollectionReference _tanaman =
+      FirebaseFirestore.instance.collection('tanaman');
       FirebaseAuth _auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
@@ -18,7 +17,7 @@ CollectionReference _jenis =
         appBar: AppBar(
           backgroundColor: Colors.green,
           title: Text(
-            'Daftar Kategori',
+            'Daftar Tanaman',
             style: TextStyle(color: Colors.white),
           ),
         ),
@@ -93,54 +92,31 @@ CollectionReference _jenis =
           ],
         ),
       ),
-        body: Column(children: [
-      Expanded(
-
-      child: ListView(
-        
-                children: [
-                   StreamBuilder<QuerySnapshot>(
-              // contoh penggunaan srteam
-              // _pengguna.orderBy('age', descending: true).snapshots()
-              // _pengguna.where('age', isLessThan: 30).snapshots()
-              stream: _jenis.orderBy('jenisTanaman', descending: false).snapshots(),
-              builder: (buildContext, snapshot) {
-                return Column(
-                  children: snapshot.data.docs
-                      .map((e) => ItemJenis(
-                            e.data()['jenisTanaman'],
-                            e.data()['keterangan'],
-                            // onUpdate: () {
-                            //   _kategori.doc(e.id).update({
-                            //     "kode": e.data()['jumlahBarang'] + 1
-                            //   });
-                            // },
-                            onDelete: () {
-                              _jenis.doc(e.id).delete();
-                            },
-                          ))
-                      .toList(),
-                );
-              },
+        floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => AddScreenTanaman(),
             ),
-                  SizedBox(
-                    height: 150,
-                  )
-                ],
-              ),
-    ),
-      SizedBox(
-        width: double.infinity,
-        child: RaisedButton(
-            color: Colors.green,
-            child: Text("Tambah Data"),
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => FormJenis()));
-            }),
+          );
+        },
+        backgroundColor: Colors.green,
+        child: Icon(
+          Icons.add,
+          color: Colors.white,
+          size: 40,
+        ),
       ),
-    ] 
-        )
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.only(
+            left: 16.0,
+            right: 16.0,
+            bottom: 20.0,
+          ),
+          child: ItemListJenis(),
+        ),
+      ),
     );
     
   }

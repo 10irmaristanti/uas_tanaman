@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'homeJenis.dart';
+import 'Jenis/homeJenis.dart';
 import 'item.dart';
 
 class FormJenis extends StatefulWidget {
